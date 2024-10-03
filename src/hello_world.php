@@ -2,6 +2,9 @@
 
 use DeschutesDesignGroupLLC\App\Http\Controllers\AdminController;
 use DeschutesDesignGroupLLC\App\Http\Controllers\ClientController;
+use Illuminate\Container\Container;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 use WHMCS\User\Client;
 
 /**
@@ -74,9 +77,19 @@ function hello_world_output($vars)
  */
 function hello_world_clientarea($vars)
 {
-    $controller = match (true) {
-        default => new ClientController
+    $container = new Container;
+
+    $request = Request::capture();
+
+    $controller = match ($request->input('controller')) {
+        null => ClientController::class,
+        default => throw new Exception('The controller you provided does not exist.')
     };
 
-    return $controller->dispatch($vars);
+    $container->instance('request', $request);
+    $container->alias('request', Request::class);
+    $container->alias('request', SymfonyRequest::class);
+    $container->bind($controller);
+
+    return $container->make($controller)->dispatch($vars);
 }

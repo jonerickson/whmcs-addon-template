@@ -16,7 +16,10 @@
   },
   "homepage": "https://www.deschutesdesigngroup.com/",
   "require": {
-    "php": "^8.1"
+    "php": "^8.1",
+    "illuminate/http": "^11.26",
+    "illuminate/support": "^11.26",
+    "illuminate/container": "^11.26"
   },
   "require-dev": {
     "symfony/var-dumper": "^6.3",

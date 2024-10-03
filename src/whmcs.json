@@ -1,0 +1,21 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-addons",
+  "name": "hello_world",
+  "license": "proprietary",
+  "category": "other",
+  "description": {
+    "name": "Hello World Addon"
+  },
+  "support": {
+    "homepage": "https:\/\/www.deschutesdesigngroup.com\/",
+    "email": "support@deschutesdesigngroup.com",
+    "support_url": "https:\/\/www.deschutesdesigngroup.com/support\/"
+  },
+  "authors": [
+    {
+      "name": "Deschutes Design Group LLC",
+      "homepage": "https:\/\/www.deschutesdesigngroup.com\/"
+    }
+  ]
+}
